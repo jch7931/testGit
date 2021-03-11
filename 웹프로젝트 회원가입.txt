@@ -1,0 +1,71 @@
+Customer(고객의 의뢰)
+  1. 요구사항 분석
+	회원가입
+  2. 설계
+	a. 데이터베이스 설계
+	  *Student
+	    id, password, name, email, tel, zipcode, address1, address2
+	    id를 기본키로한다.
+	   *zipcode
+	     seq일련본호 ,zipcod, sido, gu, dong
+
+	b. class 설계(UML): 아르고 유엠엘, 스타 유엠엘
+	  *StudentVO
+	  *ZipcodeVO
+	  *StudentDAO: Singletone : 적용 한명만 디비접속
+	  *ZipcodDAO
+	    Connection getConnection();
+	    boolean idCheck(String id);
+	    Vector<ZipVO> zipCodeRead(String dong);
+	    void memberInsert(StudentVO svo);'
+	    int loginCheck(String id, String pass);
+	    StudentVO getMember(String id);
+	    void updateMember(StudentVO svo);
+	    void deleteMember(String id, String pass);
+
+	c. 화면설계(StoryBoard)
+	  ID      ________________
+	  PASS  ________________
+	      로그인  회원가입	login.jsp
+
+	 ID      _______________ 중복확인
+	 PASS  _______________
+	 우편번호 ____________ 추가
+	      가입	   취소		loginPlus.jsp
+
+	  ID는 사용 가능!
+	           불  가능!
+	        닫기		idCheck.jsp
+
+	  동이름 ____________ 검색
+	   ________________________
+	   ________________________
+
+		닫기 		zipCheck.jsp
+
+	  회원가입가면서 DB에 넣어주고 login.jsp로 가는 memberInsert.jsp
+
+	  ID 님 환영 !
+	  정보수정
+	  회원탈퇴		login.jsp
+
+	  정보수정
+	   ID       ___________
+	   PASS   ___________
+	   ___________________
+	   __________________
+	         수정   취소		updateForm.jsp
+
+				updatePross.jsp
+
+
+	   ID       ________________
+	   PASS   ________________
+	        탈퇴 취소
+				deleteForm.jsp
+
+				deletePross.jsp
+				
+				logoutPross.jsp
+
+	d.
